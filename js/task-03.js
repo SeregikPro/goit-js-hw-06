@@ -13,23 +13,21 @@ const images = [
   },
 ];
 
-// const makeGalleryItem = image => {
-//   const imageEl = document.createElement('li');
-//   imageEl.document.createElement('img');
-//   imageEl.url = images.url;
 
-//   imageEl.alt = images.alt;
-
-//   return imageEl
-// };
-
-const elements = images.map(image => {
-  const imageEl = document.createElement('img');
-
-  })
+const imagesItems = images.map(image => {
+  const imageEl =
+    `<li>
+      <img src="${image.url}" alt="${image.alt}">
+    </li>`;
+  return imageEl;
+});
   
+const galleryList = document.querySelector(".gallery");
+galleryList.insertAdjacentHTML("afterbegin", imagesItems);
+galleryList.style.display = "flex";
+galleryList.style.listStyle = "none";
 
-imageEl.src = image.url;
-imageEl.alt = image.alt;
-
-console.log(`imageEl`, imageEl);
+const galleryItem = document.querySelectorAll("li")
+.forEach(el => {
+  el.classList.add("gallery__item");
+});
